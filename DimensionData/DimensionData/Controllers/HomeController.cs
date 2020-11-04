@@ -1,4 +1,6 @@
 ﻿using DimensionData.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -18,12 +20,30 @@ namespace DimensionData.Controllers
             _logger = logger;
         }
 
+
         public IActionResult Index()
-        {
+        { 
             return View();
         }
 
+
+
         public IActionResult Privacy()
+        {
+            ViewBag.Message = "This application was made by KeKgethilwe";
+            return View();
+        }
+
+        public IActionResult EmployeeIndex
+        {
+            get
+            {
+                return View();
+            }
+        }
+
+        [Authorize]
+        public IActionResult Dashboard()
         {
             return View();
         }

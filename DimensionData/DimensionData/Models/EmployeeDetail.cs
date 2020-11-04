@@ -21,5 +21,6 @@ namespace DimensionData.Models
         public int? SurveyId { get; set; }
         public int? EducationId { get; set; }
         public int? PerfomanceId { get; set; }
+        public string EmloyeeNumber { get; set; }
     }
 }

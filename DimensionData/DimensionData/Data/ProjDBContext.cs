@@ -201,6 +201,10 @@ namespace DimensionData.Data
             {
                 entity.HasKey(e => e.EmployeeDetailsId);
 
+                entity.Property(e => e.EmloyeeNumber)
+                    .HasMaxLength(10)
+                    .IsFixedLength(true);
+
                 entity.Property(e => e.Over18)
                     .HasMaxLength(10)
                     .IsUnicode(false)

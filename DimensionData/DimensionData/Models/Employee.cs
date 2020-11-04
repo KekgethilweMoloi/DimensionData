@@ -9,7 +9,7 @@ namespace DimensionData.Models
     {
         public int EmployeeNumber { get; set; }
         public string Name { get; set; }
-        public int? EmployeeDetailsId { get; set; }
+        public int? Age { get; set; }
         public string Email { get; set; }
         public string Department { get; set; }
     }

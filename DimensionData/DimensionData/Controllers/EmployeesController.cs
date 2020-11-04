@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DimensionData.Data;
 using DimensionData.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DimensionData.Controllers
 {
@@ -20,8 +21,9 @@ namespace DimensionData.Controllers
         }
 
         // GET: Employees
+        [Authorize]
         public async Task<IActionResult> Index()
-        {   
+        {
             return View(await _context.Employees.ToListAsync());
         }
 
@@ -54,7 +56,7 @@ namespace DimensionData.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EmployeeNumber,Name,EmployeeDetailsId,Email,Department")] Employee employee)
+        public async Task<IActionResult> Create([Bind("EmployeeNumber,Name,Age,Email,Department")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +88,7 @@ namespace DimensionData.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EmployeeNumber,Name,EmployeeDetailsId,Email,Department")] Employee employee)
+        public async Task<IActionResult> Edit(int id, [Bind("EmployeeNumber,Name,Age,Email,Department")] Employee employee)
         {
             if (id != employee.EmployeeNumber)
             {
