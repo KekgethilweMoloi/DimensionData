@@ -8,7 +8,6 @@ namespace DimensionData.Models
     public partial class EmployeeDetail
     {
         public int EmployeeDetailsId { get; set; }
-        public int? Age { get; set; }
         public string Attrition { get; set; }
         public string DistanceFromHome { get; set; }
         public int? EmployeeNumber { get; set; }
